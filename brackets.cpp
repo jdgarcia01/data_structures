@@ -1,3 +1,9 @@
+/************************************************************
+ ** Author: John Garcia
+ ** Cousera assignment 1 course 2.
+ ** Execution time 0.01/1.00
+ ** Passed 54/54 test cases.  
+ ***********************************************************/
 #include <iostream>
 #include <stack>
 #include <string>
