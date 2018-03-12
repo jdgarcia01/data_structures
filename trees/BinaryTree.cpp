@@ -40,10 +40,10 @@ private:
 	void preOrder(node *root);
 	void printTree(node *leaf);
 	void inOrder(node *root);
-        void reBalanceTree(node *root);
-        void findElement(int key, node *root); 
+  void reBalanceTree(node *root);
+  void findElement(int key, node *root);
 	void destroy_tree(node *root);
-        void commonAncestor(int key1, int key2, node *root);
+  void commonAncestor(int key1, int key2, node *root);
 
 	node *root;
 
@@ -55,6 +55,7 @@ BinaryTree::BinaryTree(){
 
 BinaryTree::~BinaryTree(){
 
+std::cout << "[*] Destroying tree...calling destructor" << std::endl;
      this->destroy_tree(root);
 
 
@@ -75,20 +76,20 @@ void BinaryTree::findElement(int key, node *root){
     } else {
        if( root->key_value == key){
             std::cout << "Found key: " << key << std::endl;
-       } else { 
-              // We can reduce the search to n/2 
-              // because we will only search half the tree.  
-              if(key < root->key_value) 
+       } else {
+              // We can reduce the search to n/2
+              // because we will only search half the tree.
+              if(key < root->key_value)
              findElement(key, root->left);
-          
+
               if(key > root->key_value)
-             findElement(key, root->right); 
+             findElement(key, root->right);
 
-       } 
+       }
 
 
-   } 
-  
+   }
+
 
 }
 
@@ -114,13 +115,13 @@ void BinaryTree::commonAncestor(int key1, int key2, node *root){
    } else {
 
        if( key1 > root->key_value && key2 < root->key_value ){
-             std::cout << "Common ancestor is: " << root->key_value << std::endl; 
+             std::cout << "Common ancestor is: " << root->key_value << std::endl;
 
        } else {
                commonAncestor(key1,key2, root->left);
-               commonAncestor(key1,key2, root->right); 
+               commonAncestor(key1,key2, root->right);
 
-       }  
+       }
 
 
    }
@@ -129,7 +130,7 @@ void BinaryTree::commonAncestor(int key1, int key2, node *root){
 
 void BinaryTree::commonAncestor(int key1, int key2){
 
-   this->commonAncestor(key1, key2, root); 
+   this->commonAncestor(key1, key2, root);
 
 }
 
@@ -258,7 +259,7 @@ int main(int argc, char **argv){
 
    for(int i = 0; i < 100; i++){
 
-         tree->insert( rand() % 100 + 1); 
+         tree->insert( rand() % 100 + 1);
 
     }
 
@@ -266,11 +267,11 @@ int main(int argc, char **argv){
     tree->commonAncestor(20, 25);
     tree->inOrder();
 
+
     // tree->preOrder();
 
    //  tree->postOrder();
-
+	delete(tree);
 
 
 }
-
